@@ -534,7 +534,7 @@
   line-height: 1.22;
   margin-top: 1rem;
   margin-bottom: 0;
-  word-wrap: break-word; /* Fallback added for older browsers */
+  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
@@ -840,7 +840,6 @@
   box-sizing: border-box;
 }
 
-/* Use CSS grid for precise multi-row, multi-column control */
 .cards.cards26 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -853,7 +852,6 @@
   box-sizing: border-box;
 }
 
-/* Assign grid positions for a magazine-like layout (6 cards example) */
 .cards.cards26 ul li {
   background: #fff;
   border-radius: 24px;
@@ -867,16 +865,6 @@
   margin: 0;
 }
 
-/* 
-  Example layout for 6 cards:
-  Card 1: Tall portrait (top left)
-  Card 2: Tall portrait (top right)
-  Card 3: Portrait (top center-left)
-  Card 4: Portrait (top center-right)
-  Card 5: Landscape (bottom left, spans 2 columns)
-  Card 6: Landscape (bottom right, spans 2 columns)
-  Adjust nth-child as necessary for your content order
-*/
 .cards.cards26 ul li:nth-child(1) {
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
@@ -907,7 +895,6 @@
   grid-row: 3 / span 1;
 }
 
-/* Card image styling */
 .cards.cards26 .cards-card-image {
   width: 100%;
   display: block;
@@ -924,7 +911,6 @@
   display: block;
 }
 
-/* Card body styling */
 .cards.cards26 .cards-card-body {
   padding: 28px 28px 20px;
   color: #454545;
@@ -956,7 +942,6 @@
   line-height: 1.5;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .cards.cards26 {
     padding: 20px 0;
@@ -996,5 +981,109 @@
 
   .cards.cards26 .cards-card-body {
     padding: 14px 8px 10px;
+  }
+}
+
+
+.cards.cards34 ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards34 ul li {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 7%);
+  padding: 24px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.cards-card-image {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards-card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+  object-fit: cover;
+}
+
+.cards-card-body {
+  flex: 1 1 55%;
+  max-width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.cards-card-body p:first-child,
+.cards-card-body p:nth-child(2) {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 8px;
+  margin-bottom: 14px;
+  color: #222;
+  background: #eee;
+}
+
+.cards-card-body h3 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 10px;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.cards-card-body p:nth-child(4) {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.cards-card-body p:last-child {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 12px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 ul {
+    grid-template-columns: 1fr;
+  }
+
+  .cards.cards34 ul li {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cards-card-image,
+  .cards-card-body {
+    max-width: 100%;
+    flex-basis: 100%;
   }
 }
