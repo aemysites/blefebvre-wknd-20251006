@@ -45,3 +45,186 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero6 {
+  /* Set up flex row: text box left, image column right */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  border-radius: 2em;
+  overflow: hidden;
+  min-height: 520px;
+  background: #18191B;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* IMAGE COLUMN (right side) */
+.hero.hero6 div picture,
+.hero.hero6 div picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Position image column right, fill height */
+.hero.hero6 div:first-child {
+  flex: 1 1 55%;
+  min-width: 0;
+  min-height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  position: relative;
+  order: 2;
+}
+
+/* Add dark overlay for image contrast */
+.hero.hero6 div:first-child::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(20 20 24 / 58%);
+  pointer-events: none;
+}
+
+/* TEXT COLUMN (left side) - overlay box with white border */
+.hero.hero6 div:last-child {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 100%;
+  order: 1;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  z-index: 1;
+}
+
+/* INNER SEMI-TRANSPARENT BOX */
+.hero.hero6 div:last-child div {
+  background: rgb(28 28 30 / 84%);
+  border-radius: 1.5em;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
+  padding: 3em 2.8em 2.7em;
+  margin: 0 0 0 2.8em;
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: flex-start;
+  justify-content: center;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* HEADLINE */
+.hero.hero6 h1 {
+  color: #fff;
+  font-size: 3.2em;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.5em;
+  text-align: left;
+}
+
+/* DESCRIPTION */
+.hero.hero6 p:not(.button-container) {
+  color: #e5e5e5;
+  font-size: 1.15em;
+  line-height: 1.6;
+  margin: 0 0 2em;
+  text-align: left;
+}
+
+/* BUTTON ROW */
+.hero.hero6 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1em;
+  margin: 0;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+/* PRIMARY BUTTON */
+.hero.hero6 .button-container .button {
+  padding: 0.85em 2.5em;
+  border-radius: 2em;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  border: none;
+  background: #f5f5f5;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+}
+
+/* SECONDARY BUTTON: outlined, white text */
+.hero.hero6 .button-container .button + .button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+/* BUTTON HOVER STATES */
+.hero.hero6 .button-container .button:hover,
+.hero.hero6 .button-container .button:focus {
+  background: #eaeaea;
+  color: #111;
+}
+
+.hero.hero6 .button-container .button + .button:hover,
+.hero.hero6 .button-container .button + .button:focus {
+  background: rgb(255 255 255 / 10%);
+  color: #fff;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (width <= 900px) {
+  .hero.hero6 {
+    flex-direction: column;
+    min-height: 380px;
+    border-radius: 1.2em;
+  }
+
+  .hero.hero6 div:first-child,
+  .hero.hero6 div:last-child {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    min-height: unset;
+    order: unset;
+  }
+
+  .hero.hero6 div:last-child {
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero.hero6 div:last-child div {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 2em 1em;
+    max-width: 96vw;
+  }
+
+  .hero.hero6 h1 {
+    font-size: 2.2em;
+  }
+
+  .hero.hero6 .button-container {
+    gap: 0.5em;
+  }
+}
