@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,8 +6,17 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
+  padding: 2rem;
   min-height: 300px;
+  background: rgb(20 20 20 / 80%);
+  border-radius: 2rem;
+  border: 2px solid #000;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 15%);
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  z-index: 2;
 }
 
 .hero h1,
@@ -47,7 +57,6 @@
 }
 
 .hero.hero6 {
-  /* Set up flex row: text box left, image column right */
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -61,7 +70,6 @@
   box-sizing: border-box;
 }
 
-/* IMAGE COLUMN (right side) */
 .hero.hero6 div picture,
 .hero.hero6 div picture img {
   width: 100%;
@@ -70,7 +78,6 @@
   display: block;
 }
 
-/* Position image column right, fill height */
 .hero.hero6 div:first-child {
   flex: 1 1 55%;
   min-width: 0;
@@ -82,7 +89,6 @@
   order: 2;
 }
 
-/* Add dark overlay for image contrast */
 .hero.hero6 div:first-child::after {
   position: absolute;
   inset: 0;
@@ -90,7 +96,6 @@
   pointer-events: none;
 }
 
-/* TEXT COLUMN (left side) - overlay box with white border */
 .hero.hero6 div:last-child {
   flex: 1 1 45%;
   display: flex;
@@ -105,7 +110,6 @@
   z-index: 1;
 }
 
-/* INNER SEMI-TRANSPARENT BOX */
 .hero.hero6 div:last-child div {
   background: rgb(28 28 30 / 84%);
   border-radius: 1.5em;
@@ -124,7 +128,6 @@
   box-sizing: border-box;
 }
 
-/* HEADLINE */
 .hero.hero6 h1 {
   color: #fff;
   font-size: 3.2em;
@@ -135,7 +138,6 @@
   text-align: left;
 }
 
-/* DESCRIPTION */
 .hero.hero6 p:not(.button-container) {
   color: #e5e5e5;
   font-size: 1.15em;
@@ -144,7 +146,6 @@
   text-align: left;
 }
 
-/* BUTTON ROW */
 .hero.hero6 .button-container {
   display: flex;
   flex-direction: row;
@@ -154,7 +155,6 @@
   justify-content: flex-start;
 }
 
-/* PRIMARY BUTTON */
 .hero.hero6 .button-container .button {
   padding: 0.85em 2.5em;
   border-radius: 2em;
@@ -168,7 +168,6 @@
   margin: 0;
 }
 
-/* SECONDARY BUTTON: outlined, white text */
 .hero.hero6 .button-container .button + .button {
   background: transparent;
   color: #fff;
@@ -176,7 +175,6 @@
   box-shadow: none;
 }
 
-/* BUTTON HOVER STATES */
 .hero.hero6 .button-container .button:hover,
 .hero.hero6 .button-container .button:focus {
   background: #eaeaea;
@@ -189,7 +187,6 @@
   color: #fff;
 }
 
-/* RESPONSIVE ADJUSTMENTS */
 @media (width <= 900px) {
   .hero.hero6 {
     flex-direction: column;
@@ -226,5 +223,87 @@
 
   .hero.hero6 .button-container {
     gap: 0.5em;
+  }
+}
+
+
+.hero-wrapper {
+  background: url('your-background.jpg') center center/cover no-repeat;
+  position: relative;
+  padding: 4rem 0;
+}
+
+/* Overlay */
+
+/* Left (image) */
+.hero > div:nth-child(1) {
+  flex: 0 0 350px;
+  margin-right: 2rem;
+}
+
+.hero > div:nth-child(1) img {
+  border-radius: 1rem;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Right (content) */
+.hero > div:nth-child(2) {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Headline */
+.hero > div:nth-child(2) h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+/* Subtext/bullets */
+.hero > div:nth-child(2) p, 
+.hero > div:nth-child(2) ul {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+/* Button */
+.hero > div:nth-child(2) .cta-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 2px solid #000;
+  border-radius: 2rem;
+  background: rgb(255 255 255 / 15%);
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.2s;
+}
+
+.hero > div:nth-child(2) .cta-btn:hover {
+  background: rgb(0 0 0 / 5%);
+}
+
+/* Responsive */
+@media (width <= 700px) {
+  .hero {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .hero > div:nth-child(1) {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
   }
 }
