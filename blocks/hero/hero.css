@@ -312,7 +312,6 @@
   display: block;
 }
 
-/* Image grid as full-bleed background */
 .hero.hero20 div {
   position: absolute;
   inset: 0;
@@ -325,7 +324,6 @@
   z-index: 1;
 }
 
-/* Responsive grid columns */
 @media (width <= 900px) {
   .hero.hero20 div {
     grid-template-columns: repeat(2, 1fr);
@@ -348,7 +346,6 @@
   display: block;
 }
 
-/* Overlay: center content vertically and horizontally over grid */
 .hero.hero20 div div,
 .hero.hero20 div ~ div {
   position: absolute;
@@ -362,7 +359,6 @@
   pointer-events: none;
 }
 
-/* Stack: main content is vertical, centered, with text and CTAs */
 .hero.hero20 div div div,
 .hero.hero20 div ~ div div {
   display: flex;
@@ -377,7 +373,6 @@
   pointer-events: auto;
 }
 
-/* Headline: large, bold, white, uppercase, strong shadow */
 .hero.hero20 h1 {
   color: #fff;
   font-size: clamp(2.5rem, 8vw, 6rem);
@@ -390,7 +385,6 @@
   text-shadow: 0 4px 32px rgb(0 0 0 / 56%), 0 1px 2px rgb(0 0 0 / 29%);
 }
 
-/* Subtext: white, slightly translucent, shadowed for readability */
 .hero.hero20 p:not(:last-child) {
   color: #fff;
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
@@ -402,7 +396,6 @@
   font-weight: 400;
 }
 
-/* CTA row: side-by-side on desktop, stacked on mobile */
 .hero.hero20 p:last-child {
   display: flex;
   flex-flow: row wrap;
@@ -413,7 +406,6 @@
   width: 100%;
 }
 
-/* Buttons: pill-shaped, prominent, specific to hero block */
 .hero.hero20 a,
 .hero.hero20 .button {
   display: inline-block;
@@ -435,7 +427,6 @@
   text-decoration: none;
 }
 
-/* First button: solid white, dark text, no border */
 .hero.hero20 a:first-child,
 .hero.hero20 .button:first-child {
   background: #fff;
@@ -443,7 +434,6 @@
   border: none;
 }
 
-/* Second button: transparent with white border/text */
 .hero.hero20 a:last-child,
 .hero.hero20 .button:last-child {
   background: transparent;
@@ -451,7 +441,6 @@
   border: 2px solid #fff;
 }
 
-/* Button hover/focus styles */
 .hero.hero20 a:hover,
 .hero.hero20 a:focus,
 .hero.hero20 .button:hover,
@@ -462,7 +451,6 @@
   text-decoration: none;
 }
 
-/* Responsive: stack buttons and shrink text on small screens */
 @media (width <= 650px) {
   .hero.hero20 p:last-child {
     flex-direction: column;
@@ -489,7 +477,6 @@
   }
 }
 
-/* Optional: subtle overlay for text readability */
 .hero.hero20::before {
   position: absolute;
   inset:0;
@@ -497,4 +484,172 @@
   background: linear-gradient(180deg,rgb(0 0 0 / 18%) 0%,rgb(0 0 0 / 33%) 100%);
   z-index: 1;
   pointer-events: none;
+}
+
+
+.hero.hero25 {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0 auto 64px;
+  padding: 0;
+  max-width: 1200px;
+  position: relative;
+
+  /* Remove grid/row columns from previous attempts */
+  display: block;
+}
+
+/* Responsive wrapper for vertical rhythm */
+.hero.hero25 .hero25-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 64px 40px 56px;
+  position: relative;
+}
+
+@media (width <= 900px) {
+  .hero.hero25 .hero25-inner {
+    padding: 32px 16px;
+  }
+}
+
+/* Hero image block: left-aligned, not stretched, below heading but visually underlaps heading */
+.hero.hero25 .hero25-image {
+  width: 560px;
+  max-width: 90vw;
+  min-width: 240px;
+  height: 350px;
+  min-height: 180px;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (width <= 900px) {
+  .hero.hero25 .hero25-image {
+    width: 100%;
+    height: 200px;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+.hero.hero25 .hero25-image img,
+.hero.hero25 .hero25-image picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Heading: large, overlaps image */
+.hero.hero25 .hero25-heading {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: #000;
+  text-align: left;
+  margin: 0 0 -52px;      /* negative bottom margin overlaps image */
+  padding: 0;
+  position: relative;
+  z-index: 2;                /* sits above image */
+  background: transparent;
+  max-width: 850px;
+}
+
+@media (width <= 900px) {
+  .hero.hero25 .hero25-heading {
+    font-size: 36px;
+    margin-bottom: -28px;
+    max-width: 100%;
+  }
+}
+
+/* Description/body text */
+.hero.hero25 .hero25-body {
+  font-size: 18px;
+  color: #6B6B6B;
+  text-align: left;
+  line-height: 1.5;
+  margin: 40px 0 32px;
+  max-width: 520px;
+}
+
+@media (width <= 900px) {
+  .hero.hero25 .hero25-body {
+    font-size: 16px;
+    margin: 24px 0;
+    max-width: 100%;
+  }
+}
+
+/* Button row: two outlined buttons, horizontal */
+.hero.hero25 .hero25-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 0;
+}
+
+.hero.hero25 .hero25-buttons a,
+.hero.hero25 .hero25-buttons button {
+  border: 2px solid #000;
+  background: transparent;
+  color: #000;
+  border-radius: 2em;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 32px;
+  margin: 0;
+  line-height: 1.2;
+  box-shadow: none;
+  min-width: 110px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.hero.hero25 .hero25-buttons a:hover,
+.hero.hero25 .hero25-buttons button:hover,
+.hero.hero25 .hero25-buttons a:focus,
+.hero.hero25 .hero25-buttons button:focus {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+@media (width <= 600px) {
+  .hero.hero25 .hero25-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero.hero25 .hero25-buttons a,
+  .hero.hero25 .hero25-buttons button {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+}
+
+/* Utility: allow easy targeting of default .hero.hero25 block HTML structure if custom classes are not present */
+.hero.hero25 div img,
+.hero.hero25 div picture img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  display: block;
+}
+
+.hero.hero25 p {
+  margin: 0;
+}
+
+/* Optional: if the hero image is not a background and appears in a .picture element, remove z-index from it */
+.hero.hero25 .picture {
+  z-index: unset;
 }
