@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -565,8 +564,6 @@
   background: #fff;
   padding: 0;
 }
-
-/* Main grid: 2 rows, 4 columns, tight gap */
 .cards.cards19 ul {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -576,12 +573,10 @@
   padding: 0;
   list-style: none;
 }
-
-/* Each grid item: icon left, text right */
 .cards.cards19 li {
   display: flex;
   flex-direction: row;
-  align-items: flex-start; /* icon aligns with top of text for multiline */
+  align-items: flex-start;
   padding: 0;
   margin: 0;
   background: transparent;
@@ -589,8 +584,6 @@
   box-shadow: none;
   min-width: 0;
 }
-
-/* Icon wrapper (first .cards-card-body found in li) */
 .cards.cards19 li .cards-card-body:first-of-type {
   display: flex;
   align-items: center;
@@ -599,8 +592,6 @@
   min-width: 20px;
   min-height: 20px;
 }
-
-/* Icon image or svg: tightly sized, baseline aligned */
 .cards.cards19 li .cards-card-body:first-of-type img,
 .cards.cards19 li .cards-card-body:first-of-type svg {
   width: 20px;
@@ -610,16 +601,12 @@
   display: inline-block;
   vertical-align: middle;
 }
-
-/* Text wrapper (second .cards-card-body in li) */
 .cards.cards19 li .cards-card-body:last-of-type {
   display: flex;
   align-items: flex-start;
   min-width: 0;
   flex: 1 1 auto;
 }
-
-/* Text block style */
 .cards.cards19 li .cards-card-body:last-of-type p,
 .cards.cards19 li .cards-card-body:last-of-type span,
 .cards.cards19 li .cards-card-body:last-of-type div {
@@ -630,14 +617,10 @@
   line-height: 1.45;
   word-break: normal;
 }
-
-/* Remove list markers everywhere in block */
 .cards.cards19 ul,
 .cards.cards19 li {
   list-style: none;
 }
-
-/* Responsive: 2 columns on tablet, 1 column on mobile */
 @media (width <=900px) {
   .cards.cards19 ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -652,4 +635,181 @@
     grid-template-rows: repeat(8, auto);
     gap: 12px 0;
   }
+}
+
+
+.cards.cards23 {
+  background: #FAFAFA;
+  padding: 48px 0;
+}
+
+/* 2x2 grid layout for cards */
+.cards.cards23 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px 32px;
+  margin: 0;
+  padding: 32px;
+  box-sizing: border-box;
+  background: #FAFAFA;
+}
+
+/* Card base style */
+.cards.cards23 li {
+  background: #fff;
+  border: 1px solid #EDEDED;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+
+/* Top left card: image top, text below (column) */
+.cards.cards23 li:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.cards.cards23 li:nth-child(1) .cards-card-image {
+  display: block;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0;
+}
+.cards.cards23 li:nth-child(1) .cards-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+.cards.cards23 li:nth-child(1) .cards-card-body {
+  padding: 28px 28px 20px 28px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+/* Top right and bottom left: text-only, centered, flex row with content centered vertically */
+.cards.cards23 li:nth-child(2),
+.cards.cards23 li:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cards.cards23 li:nth-child(2) .cards-card-image,
+.cards.cards23 li:nth-child(3) .cards-card-image {
+  display: none;
+}
+.cards.cards23 li:nth-child(2) .cards-card-body,
+.cards.cards23 li:nth-child(3) .cards-card-body {
+  padding: 38px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Bottom right: image tile, overlay text at absolute bottom */
+.cards.cards23 li:nth-child(4) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+.cards.cards23 li:nth-child(4) .cards-card-image {
+  display: block;
+  position: relative;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0;
+}
+.cards.cards23 li:nth-child(4) .cards-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+.cards.cards23 li:nth-child(4) .cards-card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 24px 14px 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.56) 18%, rgba(0,0,0,0.0) 84%);
+  border-radius: 0 0 20px 20px;
+  color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+  z-index: 2;
+}
+
+/* Headline & subtitle styling for all cards */
+.cards.cards23 .cards-card-body h3 {
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+  color: #333333;
+  font-size: 1.36rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+.cards.cards23 li:nth-child(4) .cards-card-body h3 {
+  color: #F5F5F5;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.16);
+}
+.cards.cards23 .cards-card-body p {
+  margin: 0 0 4px 0;
+  color: #666666;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.cards.cards23 li:nth-child(4) .cards-card-body p {
+  color: #ececec;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.14);
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 900px) {
+  .cards.cards23 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    padding: 12px;
+    gap: 24px 0;
+  }
+  .cards.cards23 li,
+  .cards.cards23 li:nth-child(4) {
+    min-width: 0;
+    min-height: 0;
+  }
+  .cards.cards23 .cards-card-body {
+    padding: 24px 14px;
+  }
+  .cards.cards23 li:nth-child(4) .cards-card-body {
+    padding: 0 14px 10px 14px;
+  }
+}
+
+.cards.cards23 .cards-card-image img {
+  height: auto;
+  max-width: 100%;
+  display: block;
 }
