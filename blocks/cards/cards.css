@@ -434,13 +434,11 @@
 
 
 .cards.cards12 {
-  /* Maintain block padding for visual separation */
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
   background: #fff;
 }
 
-/* Ensure outer block wrapper doesn't add unexpected centering */
 .cards.cards12 .cards-wrapper {
   margin: 0 auto;
   max-width: 1200px;
@@ -448,7 +446,6 @@
   padding-right: 32px;
 }
 
-/* Card row: use grid for strict multi-row/column alignment, left-aligned by default */
 .cards.cards12 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -459,7 +456,6 @@
   list-style: none;
 }
 
-/* Responsive: reduce columns at breakpoints */
 @media (width <= 1050px) {
   .cards.cards12 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -479,7 +475,6 @@
   }
 }
 
-/* Individual card styles */
 .cards.cards12 ul li {
   background: #fff;
   border-radius: 14px;
@@ -496,7 +491,6 @@
   box-shadow: 0 8px 32px rgb(32 52 89 / 13%);
 }
 
-/* Image */
 .cards.cards12 .cards-card-image img,
 .cards.cards12 .cards-card-image picture {
   display: block;
@@ -507,7 +501,6 @@
   margin: 0;
 }
 
-/* Card Body: vertical stack */
 .cards.cards12 .cards-card-body {
   padding: 1.2rem 1.1rem 1.4rem;
   display: flex;
@@ -516,7 +509,6 @@
   flex: 1 1 auto;
 }
 
-/* Tag and date row: side by side */
 .cards.cards12 .cards-card-body p:first-child {
   display: flex;
   flex-direction: row;
@@ -532,7 +524,6 @@
   line-height: 1.2;
 }
 
-/* Title styling */
 .cards.cards12 .cards-card-body p:last-child strong {
   display: block;
   color: #1a1a1a;
@@ -544,15 +535,13 @@
   margin-top: 1rem;
   margin-bottom: 0;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
-/* Remove top/bottom margin for all paragraphs in card body */
 .cards.cards12 .cards-card-body p {
   margin: 0;
 }
 
-/* Responsive image and padding tweaks */
 @media (width <= 900px) {
   .cards.cards12 .cards-card-image img,
   .cards.cards12 .cards-card-image picture {
@@ -568,5 +557,99 @@
   .cards.cards12 .cards-card-image img,
   .cards.cards12 .cards-card-image picture {
     height: 90px;
+  }
+}
+
+
+.cards.cards19 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Main grid: 2 rows, 4 columns, tight gap */
+.cards.cards19 ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+  gap: 18px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each grid item: icon left, text right */
+.cards.cards19 li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* icon aligns with top of text for multiline */
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+}
+
+/* Icon wrapper (first .cards-card-body found in li) */
+.cards.cards19 li .cards-card-body:first-of-type {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  flex-shrink: 0;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+/* Icon image or svg: tightly sized, baseline aligned */
+.cards.cards19 li .cards-card-body:first-of-type img,
+.cards.cards19 li .cards-card-body:first-of-type svg {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Text wrapper (second .cards-card-body in li) */
+.cards.cards19 li .cards-card-body:last-of-type {
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* Text block style */
+.cards.cards19 li .cards-card-body:last-of-type p,
+.cards.cards19 li .cards-card-body:last-of-type span,
+.cards.cards19 li .cards-card-body:last-of-type div {
+  font-size: var(--body-font-size-xs);
+  color: #333;
+  margin: 0;
+  text-align: left;
+  line-height: 1.45;
+  word-break: normal;
+}
+
+/* Remove list markers everywhere in block */
+.cards.cards19 ul,
+.cards.cards19 li {
+  list-style: none;
+}
+
+/* Responsive: 2 columns on tablet, 1 column on mobile */
+@media (width <=900px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, auto);
+    gap: 16px;
+  }
+}
+
+@media (width <=600px) {
+  .cards.cards19 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, auto);
+    gap: 12px 0;
   }
 }
