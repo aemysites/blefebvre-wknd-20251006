@@ -672,7 +672,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 35%); /* semi-transparent dark overlay */
+  background: rgb(0 0 0 / 35%);
   z-index: 1;
   pointer-events: none;
 }
@@ -689,7 +689,7 @@
 .hero.hero29.block h1 {
   color: #fff;
   font-family: Montserrat, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 4vw;  /* Responsive large */
+  font-size: 4vw;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
@@ -698,3 +698,164 @@
   margin: 0;
   padding: 0;
 }
+
+
+/* HERO37 LAYOUT & STYLE FIXES FOR TRUE HORIZONTAL HERO ("TRENDS" BLOCK) */
+
+/* 1. Root hero block: full width, clean, no outer border/corners, only bottom divider */
+.hero.hero37 {
+  background: var(--background-color);
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Content Row: horizontally align text and button, center block, max width, even side padding */
+.hero.hero37 div {
+  /* Target any nested container for layout, but affects only .hero37 descendants */
+  box-sizing: border-box;
+}
+
+/* Hide empty first div if present (used as spacer in some markup) */
+.hero.hero37 div:empty {
+  display: none;
+}
+
+/* The main content container: horizontal flex row for text stack and button */
+.hero.hero37 div:not(:empty) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 64px 48px;
+  max-width: 1100px;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 48px;
+
+  /* On ultra-wide, never let content be too stretched */
+}
+
+/* 3. Text stack: vertical, left-aligned, never centered */
+.hero.hero37 h1,
+.hero.hero37 h2,
+.hero.hero37 p {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Headline: big, bold, tight leading */
+.hero.hero37 h1,
+.hero.hero37 h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+/* Subtitle: left, constrained width, good color */
+.hero.hero37 p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+  line-height: 1.5;
+  max-width: 440px;
+  display: block;
+}
+
+/* Group text as vertical stack in flex row layout */
+
+/* 4. Button: flush right, pill, border+bshadow accent, align with text stack, no stacking! */
+.hero.hero37 .button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 180px;
+  margin-left: 48px;
+  margin-right: 0;
+}
+
+.hero.hero37 .button {
+  background: var(--background-color);
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  border-radius: 999px;
+  padding: 13px 46px;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  box-shadow: 0 4px 0 0 #f3f34b;
+  text-align: center;
+  margin: 0;
+  min-width: 180px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+/* Button hover accent */
+.hero.hero37 .button:hover,
+.hero.hero37 .button:focus {
+  box-shadow: 0 6px 0 0 #f3f34b;
+  border-color: #f3f34b;
+  color: var(--text-color);
+}
+
+/* 5. Responsiveness: stack on mobile, keep left align, button under text with top spacing */
+@media (width <= 900px) {
+  .hero.hero37 div:not(:empty) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-width: 96vw;
+    padding: 40px 16px;
+  }
+
+  .hero.hero37 .button-container {
+    margin-left: 0;
+    margin-top: 32px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero.hero37 h1,
+  .hero.hero37 h2,
+  .hero.hero37 p {
+    max-width: unset;
+  }
+}
+
+/* 6. Image support (if image is a child, not background) */
+
+/* Remove z-index, flex for layout, object-fit for img */
+.hero.hero37 .picture {
+  z-index: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  order: 2;
+}
+
+.hero.hero37 .picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Right side: image order 2 (default) */
+
+/* To switch to left, add order: 1 to .picture */
+
+/* 7. Remove side margin (for background image hero) if needed */
