@@ -1087,3 +1087,110 @@
     flex-basis: 100%;
   }
 }
+
+
+.cards.cards35 {
+  background: #fff;
+  padding: 2.5rem 0;
+}
+
+.cards.cards35 .cards-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+}
+
+.cards.cards35 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  place-items: stretch center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards35 ul li {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+}
+
+/* Ensure image is always at the top and fills the card width */
+.cards.cards35 .cards-card-image {
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards35 .cards-card-image img,
+.cards.cards35 .cards-card-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px 12px 0 0;
+  object-fit: cover;
+}
+
+/* Caption/text area styling */
+.cards.cards35 .cards-card-body {
+  padding: 1.2rem;
+  margin: 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  text-align: left;
+  display: block;
+}
+
+.cards.cards35 .cards-card-body p {
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-weight: 400;
+  color: inherit;
+  line-height: 1.5;
+}
+
+.cards.cards35 .cards-card-body p + p {
+  margin-top: 0.5em;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .cards.cards35 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1.2rem;
+  }
+
+  .cards.cards35 ul li {
+    max-width: 400px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards35 ul {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .cards.cards35 .cards-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .cards.cards35 ul li {
+    max-width: 100%;
+  }
+}
