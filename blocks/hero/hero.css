@@ -699,10 +699,6 @@
   padding: 0;
 }
 
-
-/* HERO37 LAYOUT & STYLE FIXES FOR TRUE HORIZONTAL HERO ("TRENDS" BLOCK) */
-
-/* 1. Root hero block: full width, clean, no outer border/corners, only bottom divider */
 .hero.hero37 {
   background: var(--background-color);
   border: none;
@@ -713,18 +709,14 @@
   padding: 0;
 }
 
-/* 2. Content Row: horizontally align text and button, center block, max width, even side padding */
 .hero.hero37 div {
-  /* Target any nested container for layout, but affects only .hero37 descendants */
   box-sizing: border-box;
 }
 
-/* Hide empty first div if present (used as spacer in some markup) */
 .hero.hero37 div:empty {
   display: none;
 }
 
-/* The main content container: horizontal flex row for text stack and button */
 .hero.hero37 div:not(:empty) {
   display: flex;
   flex-direction: row;
@@ -736,11 +728,8 @@
   width: 100%;
   box-sizing: border-box;
   gap: 48px;
-
-  /* On ultra-wide, never let content be too stretched */
 }
 
-/* 3. Text stack: vertical, left-aligned, never centered */
 .hero.hero37 h1,
 .hero.hero37 h2,
 .hero.hero37 p {
@@ -749,7 +738,6 @@
   margin-right: 0;
 }
 
-/* Headline: big, bold, tight leading */
 .hero.hero37 h1,
 .hero.hero37 h2 {
   margin-top: 0;
@@ -762,7 +750,6 @@
   display: block;
 }
 
-/* Subtitle: left, constrained width, good color */
 .hero.hero37 p {
   margin-top: 0;
   margin-bottom: 0;
@@ -773,9 +760,6 @@
   display: block;
 }
 
-/* Group text as vertical stack in flex row layout */
-
-/* 4. Button: flush right, pill, border+bshadow accent, align with text stack, no stacking! */
 .hero.hero37 .button-container {
   display: flex;
   align-items: center;
@@ -800,7 +784,6 @@
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-/* Button hover accent */
 .hero.hero37 .button:hover,
 .hero.hero37 .button:focus {
   box-shadow: 0 6px 0 0 #f3f34b;
@@ -808,7 +791,6 @@
   color: var(--text-color);
 }
 
-/* 5. Responsiveness: stack on mobile, keep left align, button under text with top spacing */
 @media (width <= 900px) {
   .hero.hero37 div:not(:empty) {
     flex-direction: column;
@@ -832,9 +814,6 @@
   }
 }
 
-/* 6. Image support (if image is a child, not background) */
-
-/* Remove z-index, flex for layout, object-fit for img */
 .hero.hero37 .picture {
   z-index: unset;
   display: flex;
@@ -854,8 +833,135 @@
   border-radius: 0;
 }
 
-/* Right side: image order 2 (default) */
 
-/* To switch to left, add order: 1 to .picture */
+/* Make hero span full viewport width if full-bleed hero is required */
 
-/* 7. Remove side margin (for background image hero) if needed */
+.hero.hero40 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 480px;
+  position: relative;
+  margin: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 900px) {
+  .hero.hero40 {
+    grid-template-columns: 1fr;
+    min-height: 320px;
+  }
+}
+
+/* Image column: left side, fills its cell, no border radius or card */
+.hero.hero40 picture,
+.hero.hero40 .picture {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  /* If you want the image on the left, keep order default (grid handles order) */
+}
+
+.hero.hero40 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Text content column: overlay effect, vertical stack, left aligned */
+.hero.hero40 .hero-text,
+.hero.hero40 .block-content,
+.hero.hero40 div:not(:has(picture), :has(.picture)) {
+  /* Use a more specific selector if needed for your structure */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 56px 40px 56px 60px;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, rgb(30 30 30 / 67%) 0%, rgb(30 30 30 / 0%) 80%);
+}
+
+/* Responsive text column */
+@media (width <= 900px) {
+  .hero.hero40 .hero-text,
+  .hero.hero40 .block-content,
+  .hero.hero40 div:not(:has(picture), :has(.picture)) {
+    padding: 28px 16px;
+    background: linear-gradient(180deg, rgb(30 30 30 / 70%) 0%, rgb(30 30 30 / 0%) 100%);
+    min-height: 200px;
+  }
+}
+
+/* Headline styles */
+.hero.hero40 h1 {
+  color: #fff;
+  font-size: clamp(2.4rem, 6vw, 5.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 24px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 18%);
+}
+
+/* Paragraph styles */
+.hero.hero40 p {
+  color: #fff;
+  font-size: 1.15em;
+  line-height: 1.7;
+  margin: 0 0 28px;
+  letter-spacing: 0.018em;
+  text-align: left;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 13%);
+}
+
+/* Button container: left alignment */
+.hero.hero40 .button-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Button styles: rounded, high-contrast, left aligned */
+.hero.hero40 .button-container a.button,
+.hero.hero40 a.button {
+  background: rgb(35 35 35 / 88%);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 3em;
+  font-weight: 600;
+  font-size: 1.05em;
+  padding: 0.75em 2.2em;
+  text-align: left;
+  margin: 0;
+  box-shadow: 0 1px 10px rgb(0 0 0 / 13%);
+  text-shadow: 0 2px 8px rgb(0 0 0 / 16%);
+  transition: background 0.15s, color 0.15s, border 0.15s;
+}
+
+.hero.hero40 .button-container a.button:hover,
+.hero.hero40 a.button:hover {
+  background: rgb(35 35 35 / 100%);
+  color: #ffecb3;
+  border-color: #fff;
+}
+
+/* Remove unwanted card, border, shadow, or background on hero root */
