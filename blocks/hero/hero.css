@@ -495,12 +495,9 @@
   padding: 0;
   max-width: 1200px;
   position: relative;
-
-  /* Remove grid/row columns from previous attempts */
   display: block;
 }
 
-/* Responsive wrapper for vertical rhythm */
 .hero.hero25 .hero25-inner {
   display: flex;
   flex-direction: column;
@@ -515,7 +512,6 @@
   }
 }
 
-/* Hero image block: left-aligned, not stretched, below heading but visually underlaps heading */
 .hero.hero25 .hero25-image {
   width: 560px;
   max-width: 90vw;
@@ -546,17 +542,16 @@
   border-radius: 0;
 }
 
-/* Heading: large, overlaps image */
 .hero.hero25 .hero25-heading {
   font-size: 64px;
   font-weight: 800;
   line-height: 1.05;
   color: #000;
   text-align: left;
-  margin: 0 0 -52px;      /* negative bottom margin overlaps image */
+  margin: 0 0 -52px;
   padding: 0;
   position: relative;
-  z-index: 2;                /* sits above image */
+  z-index: 2;
   background: transparent;
   max-width: 850px;
 }
@@ -569,7 +564,6 @@
   }
 }
 
-/* Description/body text */
 .hero.hero25 .hero25-body {
   font-size: 18px;
   color: #6B6B6B;
@@ -587,7 +581,6 @@
   }
 }
 
-/* Button row: two outlined buttons, horizontal */
 .hero.hero25 .hero25-buttons {
   display: flex;
   flex-direction: row;
@@ -635,7 +628,6 @@
   }
 }
 
-/* Utility: allow easy targeting of default .hero.hero25 block HTML structure if custom classes are not present */
 .hero.hero25 div img,
 .hero.hero25 div picture img {
   object-fit: cover;
@@ -649,7 +641,60 @@
   margin: 0;
 }
 
-/* Optional: if the hero image is not a background and appears in a .picture element, remove z-index from it */
 .hero.hero25 .picture {
   z-index: unset;
+}
+
+
+.hero.hero29.block {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0; 
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero.hero29.block > div:first-child {
+  height: 100%; 
+  width: 100%;
+}
+
+.hero.hero29.block > div:first-child picture,
+.hero.hero29.block > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero29.block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 35%); /* semi-transparent dark overlay */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero29.block > div:nth-child(2) {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hero.hero29.block h1 {
+  color: #fff;
+  font-family: Montserrat, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 4vw;  /* Responsive large */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
 }
