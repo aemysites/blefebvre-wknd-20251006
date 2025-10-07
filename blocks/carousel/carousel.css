@@ -158,7 +158,6 @@
   display: none;
 }
 
-/* Make slides and images fill the entire carousel block, removing gaps and paddings */
 .carousel.carousel16 .carousel-slides {
   display: flex;
   gap: 0;
@@ -179,7 +178,6 @@
   justify-content: center;
 }
 
-/* Images fill their slide, edge-to-edge, and are centered vertically */
 .carousel.carousel16 .carousel-slide-image,
 .carousel.carousel16 .carousel-slide-image img,
 .carousel.carousel16 .carousel-slide-image picture {
@@ -193,21 +191,62 @@
   border-radius: 0;
 }
 
-/* Remove overlay content if present */
 .carousel.carousel16 .carousel-slide-content {
   display: none;
 }
 
-/* Responsive: If only one slide is present, ensure it fills the block */
 .carousel.carousel16 .carousel-slides:only-child,
 .carousel.carousel16 .carousel-slide:only-child {
   width: 100%;
   height: 100%;
 }
 
-/* Remove any left/right whitespace from the carousel block itself */
 .carousel.carousel16 {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+
+.carousel.carousel24 .carousel-navigation-buttons,
+.carousel.carousel24 .carousel-slide-indicators {
+  display: none;
+}
+
+.carousel.carousel24 .carousel-overlay {
+  position: absolute;
+  top: 22%;
+  left: 8%;
+  right: 8%;
+  background: rgb(40 40 40 / 28%);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  max-width: 520px;
+  min-width: 220px;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 9%);
+  font-size: 1.13em;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.28;
+  letter-spacing: 0.025em;
+  z-index: 2;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+
+.carousel.carousel24:hover .carousel-overlay {
+  background: rgb(40 40 40 / 38%);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 16%);
+}
+
+@media (width <= 700px) {
+  .carousel.carousel24 .carousel-overlay {
+    left: 4%;
+    right: 4%;
+    max-width: 98vw;
+    font-size: 1em;
+    padding: 0.5em 0.7em;
+    top: 6vw;
+  }
 }
