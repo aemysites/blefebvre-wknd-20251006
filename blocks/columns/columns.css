@@ -6,6 +6,11 @@
 
 .columns img {
   width: 100%;
+  border-radius: 24px;
+  max-width: 380px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 
 .columns > div > div {
@@ -177,15 +182,14 @@
 .columns.columns38 .block.columns {
   display: flex;
   flex-direction: row;
-  gap: 40px; /* generous spacing between content and images */
+  gap: 40px;
   padding: 40px;
   background: #F7F7F4;
-  align-items: flex-start; /* aligns tops */
+  align-items: flex-start;
 }
 
 .columns.columns38 .block.columns div {
-  /* Content column (assumed to be first div) */
-  flex: 0 1 40%;      /* takes about 40% width, can adjust to 45% if needed */
+  flex: 0 1 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -238,14 +242,12 @@
 }
 
 .columns.columns38 .block.columns .columns-img-col {
-  flex: 1 1 18%;  /* images take equal remaining width */
+  flex: 1 1 18%;
   margin-right: 24px;
   border-radius: 24px;
-  overflow: hidden; /* rounds image corners */
+  overflow: hidden;
   background: #fff;
   box-sizing: border-box;
-
-  /* Optional: for vertical effect, set a min height */
   min-height: 420px;
   display: flex;
   align-items: stretch;
@@ -282,3 +284,102 @@
     min-height: 200px;
   }
 }
+
+
+.columns {
+  background: #f9f9f4;
+  border-radius: 32px;
+  padding: 56px 40px;
+  box-sizing: border-box;
+  margin: 0 auto 48px;
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (width <= 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+    padding: 32px 8vw;
+    gap: 32px;
+  }
+}
+
+/* Left column tweaks (first groupings) */
+.columns div {
+  min-width: 0;
+}
+
+/* "Taylor Brooks" and tags (if present) */
+.columns div:first-child p {
+  margin: 0 0 20px;
+  font-size: 20px;
+  color: #232323;
+  font-weight: 600;
+}
+
+.columns div:nth-child(2) p {
+  display: inline-block;
+  background: #efefea;
+  color: #232323;
+  border-radius: 28px;
+  padding: 6px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 12px 8px 0;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+/* Right column title */
+.columns h2 {
+  font-size: 64px;
+  font-weight: 800;
+  color: #232323;
+  line-height: 1.12;
+  margin: 0 0 24px;
+  letter-spacing: -1px;
+}
+
+@media (width <= 900px) {
+  .columns h2 {
+    font-size: 34px;
+  }
+}
+
+/* Right column description */
+.columns div:last-child p {
+  font-size: 16px;
+  color: #5a5a5a;
+  line-height: 1.4;
+  margin: 0 0 18px;
+}
+
+/* Button styles for CTA area */
+.columns div:last-child a,
+.columns div:last-child button {
+  display: inline-block;
+  border: 1px solid #232323;
+  background: #fff;
+  color: #232323;
+  border-radius: 28px;
+  padding: 16px 36px;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 24px 12px 0 0;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  text-align: center;
+  text-decoration: none;
+  min-width: 120px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.columns div:last-child a:hover,
+.columns div:last-child button:hover {
+  background: #f2f2f2;
+}
+
+/* Image presentation in left column (if applicable) */
